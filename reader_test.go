@@ -87,7 +87,7 @@ func TestReader(t *testing.T) {
 	for _, tc := range tests {
 		t.Run(tc.Name, func(t *testing.T) {
 			setHTTPClient(tc.mockHTTP)
-			result, actualErr := NewDafaultReader([]string{"test"}, tc.mockResponseReader).Parse()
+			result, actualErr := NewDefaultReader([]string{"test"}, tc.mockResponseReader).Parse()
 			expected, expectErr := tc.Expect()
 			assert.Equal(t, result, expected)
 			require.Equal(t, expectErr, actualErr)
