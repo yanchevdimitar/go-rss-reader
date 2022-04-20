@@ -20,7 +20,7 @@ type DefaultReader struct {
 	responseReader ResponseReader
 }
 
-func NewDafaultReader(urls []string, responseReader ResponseReader) Parser {
+func NewDefaultReader(urls []string, responseReader ResponseReader) Parser {
 	return DefaultReader{
 		urls,
 		responseReader,
