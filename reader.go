@@ -31,8 +31,9 @@ func (rr DefaultReader) Parse() (rss []dto.RssResponse, err error) {
 	var items []dto.RssItem
 	var resultQueue []dto.URLResponse
 
+	c := rr.fetch()
 	for i := 0; i < len(rr.urls); i++ {
-		resultQueue = append(resultQueue, <-rr.fetch())
+		resultQueue = append(resultQueue, <-c)
 		if resultQueue[i].Error != nil {
 			return nil, ErrHTTP
 		}
